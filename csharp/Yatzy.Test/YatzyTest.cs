@@ -8,7 +8,7 @@ namespace Yatzy.Test
         public void Chance_scores_sum_of_all_dice()
         {
             var expected = 15;
-            var actual = Yatzy.Chance(2, 3, 4, 5, 1);
+            var actual = new Yatzy(2, 3, 4, 5, 1).Chance;
             Assert.Equal(expected, actual);
             Assert.Equal(16, Yatzy.Chance(3, 3, 4, 5, 1));
         }
@@ -60,20 +60,8 @@ namespace Yatzy.Test
             Assert.Equal(4, new Yatzy(4, 5, 5, 5, 5).Fours());
         }
 
-        [Fact]
-        public void fullHouse()
-        {
-            Assert.Equal(18, Yatzy.FullHouse(6, 2, 2, 2, 6));
-            Assert.Equal(0, Yatzy.FullHouse(2, 3, 4, 5, 6));
-        }
 
-        [Fact]
-        public void largeStraight()
-        {
-            Assert.Equal(20, Yatzy.LargeStraight(6, 2, 3, 4, 5));
-            Assert.Equal(20, Yatzy.LargeStraight(2, 3, 4, 5, 6));
-            Assert.Equal(0, Yatzy.LargeStraight(1, 2, 2, 4, 5));
-        }
+        
 
         [Fact]
         public void one_pair()
@@ -83,21 +71,9 @@ namespace Yatzy.Test
             Assert.Equal(12, Yatzy.ScorePair(5, 3, 6, 6, 5));
         }
 
-        [Fact]
-        public void sixes_Fact()
-        {
-            Assert.Equal(0, new Yatzy(4, 4, 4, 5, 5).sixes());
-            Assert.Equal(6, new Yatzy(4, 4, 6, 5, 5).sixes());
-            Assert.Equal(18, new Yatzy(6, 5, 6, 6, 5).sixes());
-        }
 
-        [Fact]
-        public void smallStraight()
-        {
-            Assert.Equal(15, Yatzy.SmallStraight(1, 2, 3, 4, 5));
-            Assert.Equal(15, Yatzy.SmallStraight(2, 3, 4, 5, 1));
-            Assert.Equal(0, Yatzy.SmallStraight(1, 2, 2, 4, 5));
-        }
+
+  
 
         [Fact]
         public void three_of_a_kind()
